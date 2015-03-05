@@ -1,21 +1,2 @@
 {{#fancy-title}}Sightings{{/fancy-title}}
-<table class='table'>
-  <tr>
-    <th>Seen At</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th>Height (cm)</th>
-    <th>Weight (kg)</th>
-    <th>BMI</th>
-  </tr>
-  {{#each model as |sighting|}}
-    <tr>
-        <td>{{format-date sighting.seenAt}}</td>
-        <td>{{sighting.location}}</td>
-        <td>{{sighting.description}}</td>
-        <td>{{sighting.height}}</td>
-        <td>{{sighting.weight}}</td>
-        <td>{{sighting.bmi}}</td>
-      </tr>
-  {{/each}}
-</table>
+{{outlet}}

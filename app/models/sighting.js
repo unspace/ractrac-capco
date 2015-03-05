@@ -14,6 +14,12 @@ Sighting.reopenClass({
         return Sighting.create(s);
       });
     });
+  },
+
+  find(id) {
+    return Ember.$.ajax('/api/sightings/' + id).then((s) => {
+      return Sighting.create(s);
+    });
   }
 });
 
