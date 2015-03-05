@@ -4,7 +4,15 @@ var Sighting = Ember.Object.extend({
   bmi: Ember.computed('weight', 'height', function() {
     var heightM = this.get('height') / 100.0;
     return this.get('weight') / (heightM * heightM);
-  })
+  }),
+
+  save() {
+    var data = this.getProperties('location','description','height','weight');
+    return Ember.$.ajax('/api/sightings/',{
+      type: 'POST',
+      data: data
+    });
+  }
 });
 
 Sighting.reopenClass({
