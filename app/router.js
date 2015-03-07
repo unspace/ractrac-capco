@@ -3,7 +3,6 @@ import config from './config/environment';
 
 var Router = Ember.Router.extend({
   location: config.locationType,
-  analytics: Ember.inject.service(),
 
   pageView: function() {
     this.get('analytics').logPageView(this.get('url'));
