@@ -2,7 +2,12 @@ import Ember from 'ember';
 import config from './config/environment';
 
 var Router = Ember.Router.extend({
-  location: config.locationType
+  location: config.locationType,
+  analytics: Ember.inject.service(),
+
+  pageView: function() {
+    this.get('analytics').logPageView(this.get('url'));
+  }.on('didTransition')
 });
 
 Router.map(function() {
